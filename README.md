@@ -1,48 +1,63 @@
-# Sailpoint Installation Guide
+**Java Installation**
 
-## Introduction
-This guide outlines the essential steps for installing and deploying SailPoint, with a focus on version 8.1. Follow these instructions carefully to ensure a smooth installation process.
+**Version:** 1.8
 
-## Installation Steps
+**Set Environment Variables:**
+- **Path:** C:\Program Files\Java\jdk1.8.0_191\bin
+- **JRE_HOME:** C:\Program Files\Java\jre1.8.0_191
+- **JAVA_HOME:** C:\Program Files\Java\jdk1.8.0_191
 
-### Step 1: Install Java and Set Environment Variables
-Ensure that Java is installed on your system. Set the necessary environment variables to support SailPoint.
-
-### Step 2: Install MySQL 8.0 Database
-Install MySQL 8.0 on your system. This database is required for SailPoint to function correctly.
-
-### Step 3: Install Apache Tomcat (Windows Installer)
-If you're using the Windows installer, install Apache Tomcat on your system.
-
-### Step 4: Extract IdentityIQ-8.1.zip Files
-Download the IdentityIQ 8.1.zip file from [SailPoint Community](https://community.sailpoint.com/t5/IdentityIQ-Server-Software/IdentityIQ-8-1/ta-p/158175#toc-hId-1744926198). Extract the contents, and expand the identityiq.war file using the command: 
+**How to Check Java Installation?**
+Open the command prompt and execute the following commands one by one:
 ```bash
-jar -xvf identityiq.war
+java -version
+javac -version
 ```
+*Note: If these commands return the Java version, then Java is successfully installed.*
 
-### Step 5: Paste identityiq.war in Tomcat webapps Directory
-Copy the extracted `identityiq.war` file and paste it into the following directory:
+---
+
+**Database Installation**
+
+**Version:** MySQL 5.7 or 5.8
+
+**Set Path:**
+- **Path:** C:\Program Files\MySQL\MySQLServer5.7\bin
+
+**Open MySQL using Command Line:**
 ```bash
-C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps
+mysql -u <username> -p<password>
 ```
 
-### Step 6: Create Database
-Navigate to the database folder at:
+**Open MySQL using Workbench:**
+
+---
+
+**Server Installation**
+
+**Version:** Apache Tomcat 8.9 or 9
+
+**To Start Server:**
+Navigate to the following directory:
 ```bash
-C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\identityiq\WEB-INF\database
+apache-tomcat-9.0.56\bin
 ```
-Execute the SQL file `create_identityiq_tables-8.1.mysql` to create the required database tables.
-
-### Step 7: Open MySQL Command Line
-Open the command prompt and access the MySQL command line.
-
-### Step 8: Execute SQL Script
-In the MySQL command line, type the following command to execute the SQL script:
-```sql
-source C:\Program Files\Apache Software Foundation\Tomcat 9.0\webapps\identityiq\WEB-INF\database\create_identityiq_tables-8.1.mysql
+Open the command prompt in the same directory and run the following commands:
+```bash
+startup.bat   # To start the server
+shutdown.bat  # To stop the server
 ```
+*Note: Do not open two servers on the same machine.*
 
-Ensure that the database is created successfully without errors.
+---
 
-## Conclusion
-Congratulations! You have completed the installation and deployment of SailPoint. Make sure to review the documentation for any additional configurations or updates. If you encounter any issues, refer to the SailPoint community for support.
+**SailPoint Installation**
+
+**War File Deployment**
+- Database Creation
+- IIQ.properties File Update
+- Start Server
+
+**Login to SailPoint Web Application:**
+- **URL:** [localhost:8080/identityiq](http://localhost:8080/identityiq)
+- **Username/Password:** spadmin/admin
