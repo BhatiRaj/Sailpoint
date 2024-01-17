@@ -62,10 +62,7 @@ shutdown.bat  # To stop the server
 - **URL:** [localhost:8080/identityiq](http://localhost:8080/identityiq)
 - **Username/Password:** spadmin/admin
 
-
-
-
-
+---
 
 Connection to Database
 
